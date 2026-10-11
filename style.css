@@ -206,7 +206,7 @@ textarea {
 }
 
 .brand-logo-img {
-  height: 52px;
+  height: 4rem;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -1678,8 +1678,9 @@ textarea {
 }
 
 .cta-logo-img {
-  height: 48px;
+  height: 56px;
   width: auto;
+  object-fit: contain;
 }
 
 .cta-text-block {
@@ -2208,7 +2209,7 @@ textarea {
   }
 
   .brand-logo-img {
-    height: 44px;
+    height: 4rem;
   }
 
   /* Show mobile toggle */
@@ -2457,7 +2458,7 @@ textarea {
   }
 
   .brand-logo-img {
-    height: 38px;
+    height: 4rem;
   }
 
   /* Hero adjustments */
