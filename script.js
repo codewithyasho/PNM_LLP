@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================================
-     8. Form Submission & Toast Notification
+     8. Form Submission & WhatsApp Forwarding (+918041234567)
      ========================================================================== */
   const inquiryForm = document.getElementById("pnmInquiryForm");
   const toastMsg = document.getElementById("toastMsg");
@@ -405,13 +405,58 @@ document.addEventListener("DOMContentLoaded", () => {
   if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = document.getElementById("fullName").value || "there";
-      const type = inquiryTypeInput ? inquiryTypeInput.value : "Inquiry";
 
+      // Retrieve all form input values
+      const type = inquiryTypeInput
+        ? inquiryTypeInput.value
+        : "Book a Consultation";
+      const fullName = (document.getElementById("fullName").value || "").trim();
+      const workEmail = (
+        document.getElementById("workEmail").value || ""
+      ).trim();
+      const phoneNumber = (
+        document.getElementById("phoneNumber").value || ""
+      ).trim();
+      const companyName = (
+        document.getElementById("companyName").value || ""
+      ).trim();
+      const employeeCount =
+        document.getElementById("employeeCount").value || "Not specified";
+      const primaryInterest =
+        document.getElementById("primaryInterest").value ||
+        "All 3 Integrated Pillars";
+      const projectMessage = (
+        document.getElementById("projectMessage").value || ""
+      ).trim();
+
+      // Construct a structured and professional WhatsApp message
+      const waText = `*NEW INQUIRY - PEOPLE NETWORK MANAGEMENT (PNM LLP)*
+------------------------------------------
+📌 *Inquiry Type:* ${type}
+👤 *Full Name:* ${fullName}
+🏢 *Company:* ${companyName}
+👥 *Team Size:* ${employeeCount}
+🎯 *Primary Interest:* ${primaryInterest}
+📱 *Phone:* ${phoneNumber}
+✉️ *Corporate Email:* ${workEmail}
+${projectMessage ? `📝 *Requirements / Challenges:*\n${projectMessage}` : `📝 *Requirements:* General Consultation & Assessment`}
+------------------------------------------
+🌐 _Sent via PNM Official Website Portal_`;
+
+      // Target WhatsApp phone number (+918041234567)
+      const waNumber = "918041234567";
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+
+      // Close modal and show confirmation toast
       closeModal();
       showToast(
-        `Thank you, ${name}! Your request for "${type}" has been received. Our HR Advisory specialist will contact you shortly.`,
+        `Thank you, ${fullName}! Opening WhatsApp to connect with PNM specialists...`,
       );
+
+      // Open WhatsApp in a new tab/window
+      window.open(waUrl, "_blank");
+
+      // Reset form
       inquiryForm.reset();
     });
   }
