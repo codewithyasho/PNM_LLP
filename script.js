@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================================
-     8. Form Submission & WhatsApp Forwarding (+918041234567)
+     8. Form Submission & WhatsApp Forwarding (+91 80764 35566)
      ========================================================================== */
   const inquiryForm = document.getElementById("pnmInquiryForm");
   const toastMsg = document.getElementById("toastMsg");
@@ -443,8 +443,8 @@ ${projectMessage ? `📝 *Requirements / Challenges:*\n${projectMessage}` : `�
 ------------------------------------------
 🌐 _Sent via PNM Official Website Portal_`;
 
-      // Target WhatsApp phone number (+918041234567)
-      const waNumber = "918041234567";
+      // Target WhatsApp phone number (+91 80764 35566)
+      const waNumber = "918076435566";
       const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
 
       // Close modal and show confirmation toast
