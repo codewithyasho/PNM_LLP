@@ -498,4 +498,18 @@ ${projectMessage ? `ğŸ“ *Requirements / Challenges:*\n${projectMessage}` : `ğŸ“
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+
+  // 9. Table of Contents Mobile Accordion
+  const tocAccordion = document.getElementById("tocAccordion");
+  if (tocAccordion && window.innerWidth <= 960) {
+    tocAccordion.removeAttribute("open");
+  }
+
+  document.querySelectorAll(".toc-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 960 && tocAccordion) {
+        tocAccordion.removeAttribute("open");
+      }
+    });
+  });
 });
